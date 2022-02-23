@@ -45,7 +45,7 @@ Por fim, o Data Warehouse é conectado á ferramenta Power BI, que consiste em u
 
 5. Por fim, com o objetivo de criar uma visualização da tabela credit_per_day, o Data Warehouse foi conectado á ferramenta Power BI, resultando no seguinte:
 
-![power bi](https://i.imgur.com/jepb5AO.png)
+![power bi](https://i.imgur.com/nU7NvGr.png)
 
 
 # Configurando o ambiente

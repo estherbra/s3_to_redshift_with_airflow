@@ -9,7 +9,7 @@
 ## 🌐 Overview
 
 Esse projeto foi feito com a linguagem de programação Python, utilizando o AWS SDK para Python Boto3 para facilitar a integração do script com o serviço de Cloud Storage da AWS (Amazon s3), além das bibliotecas json, pandas, os e glob.
-Foi utilizado o orquestrador de fluxos Apache Airflow para a criação de um trigger com horário pré-definido e a ferramenta de administração de banco de dados multiplataforma Dbeaver, conectada ao Data Warehouse Amazon Redshift para execução de queries. O trigger é disparado num horário específico e copia todos os dados de uma vez do s3 Bucket para uma tabela chamada "landing_table" no Data Warehouse.
+Foi utilizado o orquestrador de fluxos Apache Airflow para a criação de um trigger com horário pré-definido e a ferramenta de administração de banco de dados multiplataforma Dbeaver, conectada ao Data Warehouse Amazon Redshift para execução de consultas SQL. O trigger é disparado num horário específico e copia todos os dados de uma vez do s3 Bucket, criando uma tabela chamada "landing_table" no Data Warehouse.
 Por fim, o Data Warehouse é conectado á ferramenta Power BI, que consiste em um serviço de análise de negócios e fornece uma visualização da tabela credit_per_day.
 
 <br/>
@@ -31,9 +31,9 @@ Por fim, o Data Warehouse é conectado á ferramenta Power BI, que consiste em u
 
 ![conexão Dbeaver](https://i.imgur.com/zs6cVj3.png)
 
-3. Download do Apache Airflow e criação da DAG escrita em Python, a qual se conecta com o bucket e dispara o trigger que envia os arquivos contidos nele para a tabela "landing_table" no Amazon Redshift em um horário pré-determinado (19h30 do dia 21 de fevereiro) através de CRON expression '30 19 21 02 mon'. A DAG file está disponível neste repositório
+3. Download do Apache Airflow e criação da DAG escrita em Python, a qual se conecta com o bucket e dispara o trigger que envia os arquivos contidos nele para a tabela "landing_table" (criada na própria DAG) no Amazon Redshift em um horário pré-determinado (19h30 do dia 21 de fevereiro) através de CRON expression '30 19 21 02 mon'. A DAG file está disponível neste repositório
 
-![DAG](https://i.imgur.com/xMS8t4Q.png)
+![DAG](https://i.imgur.com/F4Ryf0m.png)
 
 ![DAG](https://i.imgur.com/KiGc6wG.png)
 

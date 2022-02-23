@@ -18,8 +18,8 @@ Por fim, o Data Warehouse é conectado á ferramenta Power BI, que consiste em u
 
 ![arquitetura do projeto](https://i.imgur.com/jepb5AO.png)
 
-## Passo a passo 
-1. A primeira etapa consiste em ajustar algumas permissões do bucket, como a inclusão da action "s3:PutObject" na política (caso necessário), para em seguida fazer a ingestão dos 50 arquivos semi-estruturados em um Bucket da Amazon s3 através de um script Python, no qual também é realizada a conversão do tipo json para csv por meio da biblioteca pandas.
+## Passo a passo
+1. A primeira etapa consiste em ajustar algumas permissões do bucket, como a inclusão da action "s3:PutObject" na política (caso necessário), para em seguida fazer a ingestão dos 50 arquivos semi-estruturados em um Bucket da Amazon s3 através do script de Jupyter Notebook "case-keycash.ipynb" na pasta "passo 1", no qual também é realizada a conversão do tipo json para csv por meio da biblioteca pandas.
 
 ![política bucket](https://i.imgur.com/FgASFtB.png)
 
@@ -31,13 +31,13 @@ Por fim, o Data Warehouse é conectado á ferramenta Power BI, que consiste em u
 
 ![conexão Dbeaver](https://i.imgur.com/zs6cVj3.png)
 
-3. Download do Apache Airflow e criação da DAG escrita em Python, a qual se conecta com o bucket e dispara o trigger que envia os arquivos contidos nele para a tabela "landing_table" (criada na própria DAG) no Amazon Redshift em um horário pré-determinado (19h30 do dia 21 de fevereiro) através de CRON expression '30 19 21 02 mon'. A DAG file está disponível neste repositório
+3. Download do Apache Airflow e criação da DAG escrita em Python, a qual se conecta com o Bucket e dispara o trigger que envia os arquivos contidos nele para a tabela "landing_table" (criada na própria DAG) no Amazon Redshift em um horário pré-determinado (19h30 do dia 21 de fevereiro) através de CRON expression '30 19 21 02 mon'. A DAG file está na pasta "passo 2".
 
 ![DAG](https://i.imgur.com/F4Ryf0m.png)
 
 ![DAG](https://i.imgur.com/KiGc6wG.png)
 
-4. A partir da tabela landing_table foi criada uma nova chamada credit_per_day, agregando o somatório de Crédito Solicitado (credito_solicitado) por dia (data_solicitada), considerando que alguns clientes podem ter solicitado crédito mais de uma vez e apenas a solicitação mais recente é válida. As consultas estão disponíveis neste repositório.
+4. A partir da tabela landing_table foi criada uma nova chamada credit_per_day, agregando o somatório de Crédito Solicitado (credito_solicitado) por dia (data_solicitada), considerando que alguns clientes podem ter solicitado crédito mais de uma vez e apenas a solicitação mais recente é válida. É necessário que se rode os dois scripts SQL disponíveis na pasta "passo 3", na seguinte ordem: "landing_table.sql" --> "credit_per_day.sql". O primeiro se faz necessário para a correção do tipo de dado da coluna data_solicitacao e o segundo para criação de nova tabela e inserção e consolidação de dados.
 
 ![landing_table](https://i.imgur.com/CsqbOtG.png)
 

@@ -1,5 +1,5 @@
 <div style="font-size:20px">
-  <h1>s3 to redshift with Apache Airflow - Case Keycash</h1>
+  <h1>s3 to redshift with Apache Airflow </h1>
 </div>
 
 # Sobre o Projeto

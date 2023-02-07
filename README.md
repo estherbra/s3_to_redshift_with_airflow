@@ -39,13 +39,13 @@ Por fim, o Data Warehouse é conectado á ferramenta Power BI, que consiste em u
 
 4. A partir da tabela landing_table foi criada uma nova chamada credit_per_day, agregando o somatório de Crédito Solicitado (credito_solicitado) por dia (data_solicitada), considerando que alguns clientes podem ter solicitado crédito mais de uma vez e apenas a solicitação mais recente é válida. É necessário que se rode os dois scripts SQL disponíveis na pasta "passo 3", na seguinte ordem: "landing_table.sql" --> "credit_per_day.sql". O primeiro se faz necessário para a correção do tipo de dado da coluna data_solicitacao e o segundo para criação de nova tabela e inserção e consolidação de dados.
 
-![landing_table](https://i.imgur.com/CsqbOtG.png)
+![landing_table](https://i.imgur.com/E5gxn3L.png)
 
-![credit_per_day](https://i.imgur.com/5Jt4qdd.png)
+![credit_per_day](https://i.imgur.com/t2Fn2Kg.png)
 
 5. Por fim, com o objetivo de criar uma visualização da tabela credit_per_day, o Data Warehouse foi conectado á ferramenta Power BI, resultando no seguinte:
 
-![power bi](https://i.imgur.com/nU7NvGr.png)
+![power bi](https://i.imgur.com/yC8MTjJ.png)
 
 
 # Configurando o ambiente
